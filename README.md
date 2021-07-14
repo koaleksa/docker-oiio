@@ -3,14 +3,14 @@ This project defines a [Docker](https://www.docker.com) image that contains [Ope
 
 # Installation
 ```
-$ docker pull ayoburgess/oiio
+$ docker pull koaleksa/oiio
 ```
 
 # Usage
 ## Using iinfo to inspect exr file metadata
 ```
 $ git clone https://github.com/openexr/openexr-images.git
-$ docker run --rm -v ${PWD}:/mnt/${PWD} ayoburgess/oiio iinfo -v /mnt/${PWD}/openexr-images/Chromaticities/Rec709.exr
+$ docker run --rm -v ${PWD}:/mnt/${PWD} koaleksa/oiio iinfo -v /mnt/${PWD}/openexr-images/Chromaticities/Rec709.exr
 
 /mnt//home/ayo/workspace/github/openexr-images/Chromaticities/Rec709.exr :  610 x  406, 3 channel, half openexr
     channel list: R, G, B
@@ -25,7 +25,7 @@ $ docker run --rm -v ${PWD}:/mnt/${PWD} ayoburgess/oiio iinfo -v /mnt/${PWD}/ope
 ## Using maketx to generate a tiled mip-mapped exr
 ```
 $ git clone https://github.com/openexr/openexr-images.git
-$ docker run --rm -v ${PWD}:/mnt/${PWD} ayoburgess/oiio maketx -v -u --oiio --checknan --filter lanczos3 /mnt/${PWD}/openexr-images/Chromaticities/Rec709.exr -o /mnt/${PWD}/openexr-images/Chromaticities/Rec709.tx
+$ docker run --rm -v ${PWD}:/mnt/${PWD} koaleksa/oiio maketx -v -u --oiio --checknan --filter lanczos3 /mnt/${PWD}/openexr-images/Chromaticities/Rec709.exr -o /mnt/${PWD}/openexr-images/Chromaticities/Rec709.tx
 
   prep                      0.01s   (10.5 MB)
 Reading file: /mnt//home/ayo/workspace/github/openexr-images/Chromaticities/Rec709.exr
@@ -73,7 +73,7 @@ maketx peak memory used: 17.1 MB
 
 ## Using iinfo again to check the newly created tiled mip-mapped exr file metadata
 ```
-docker run --rm -v ${PWD}:/mnt/${PWD} ayoburgess/oiio iinfo -v /mnt/${PWD}/openexr-images/Chromaticities/Rec709.tx
+docker run --rm -v ${PWD}:/mnt/${PWD} koaleksa/oiio iinfo -v /mnt/${PWD}/openexr-images/Chromaticities/Rec709.tx
 
 /mnt//home/ayo/workspace/github/openexr-images/Chromaticities/Rec709.tx :  610 x  406, 3 channel, float tiff
     MIP-map levels: 610x406 305x203 152x101 76x50 38x25 19x12 9x6 4x3 2x1 1x1

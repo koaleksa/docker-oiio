@@ -1,4 +1,4 @@
-FROM koaleksa/ocio:2.2.16.0
+FROM koaleksa/ocio:2.0.1
 
 # yum installs
 RUN yum -y update && \
